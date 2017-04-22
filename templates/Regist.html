@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>欢迎注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <form enctype="multipart/form-data" action="/regist/" method="post">
+        {% csrf_token %}
+        <table width="0" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>用户姓名 </td>
+                <td><input type="text" name="usrname" /></td>
+            </tr>
+            <tr>
+                <td>密码 </td>
+                <td><input type="password" name="password" /></td>
+            </tr>
+
+            <tr>
+                <td>确认密码 </td>
+                <td><input type="password" name="confirmpass" /></td>
+            </tr>
+
+            <tr>
+                <td>上传头像 </td>
+                <td><input type="file" name="img"></td>
+            </tr>
+
+            <tr>
+                <td>电子邮箱 </td>
+                <td><input type="text" name="email" /></td>
+            </tr>
+
+            <tr>
+                <td>学号 </td>
+                <td><input type="text" name="stuid" /></td>
+            </tr>
+
+            <tr>
+                <td>电话 </td>
+                <td><input type="text" name="telphone" /></td>
+            </tr>
+
+            <tr>
+                <td>请输入验证码：<input type="text" name="checkcode" /></td>
+                <td><img src="/check_code/" id="check_code">(不区分大小写)</td>
+            </tr>
+
+            <tr>
+                <td id="ErrorMessage">{{ErrorMessage}}</td>                
+            </tr>
+
+
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="注册" />
+                    <input id = "login" type="button" value="返回登录" />
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+<script type="text/javascript" src="/static/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="/static/js/union.js"></script>
+<script type="text/javascript">
+    Regist();
+</script>
+</html>

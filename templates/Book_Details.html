@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>书籍详情</title>
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/static/css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>欢迎{{ usrname }}，敬请期待</p>
+    <img src="{{ usrimg }}" style="height:50px; width:50px;" />
+    <a href="/main/">返回主页</a>
+    <a href="/logout/">退出登录(建议)</a>
+    <a href="../book/sale/">出售二手书</a>
+    <a href="/account/">我的购买</a>
+    <hr />
+    <div>
+        <p>{{bookname}}</p>
+        <p>
+            <img src="{{bookimg}}" style="height:50px; width:50px;"/>
+            <span><strong>售价</strong>/原价: <strong>{{booksell}}</strong>/{{bookprice}}</span>
+            <span>作者：{{bookauthor}}</span>
+            <span>出版社：{{bookpublish}}</span>
+        </p>
+        <P>详细信息：{{bookbrief}}</P>
+        <p><span>出售者:{{sellname}}</span>  <span>微信/qq/其他：{{wechat}}/{{tencentqq}}/{{callothers}}</span></p>
+        <hr/>
+        <p>交易备注(交易地点，交易时间等信息)，您也可以选择使用qq等聊天工具直接与卖家沟通:</p>
+        <p><input id="trade_remark" type="text" /></p>
+        <p> 请输入验证码：<input type="text" name="checkcode" id="check_str" /> <img src="/check_code/" id="check_code">(不区分大小写) </p>
+        <p><input id="button_buy" type="button" value="选择购买"/></p>
+    </div>   
+</body>
+<script type="text/javascript" src="/static/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="/static/js/union.js"></script>
+<script type="text/javascript">
+    $("document").ready(function () {
+        Book_Details();
+    });
+</script>
+<script>$.ajaxSetup({ data: { csrfmiddlewaretoken: '{{ csrf_token }}' }, }); var postdata = { "bookid": "{{ bookid }}", }</script>
+</html>

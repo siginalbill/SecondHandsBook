@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>个人信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>欢迎{{ usrname }}，敬请期待</p>
+    <img src="/media/{{ usrimg }}" style="height:50px; width:50px;" />
+    <a href="/logout/">退出登录(建议)</a>
+    <a href="../book/sale/">出售二手书</a>
+    <a href="/account/">我的账户</a>
+    <hr />
+    <div>
+        <table>
+            <tr>
+                <td>用户姓名 </td>
+                <td>  {{ usrname }}</td>
+            </tr>         
+
+            <tr>
+                <td>头像 </td>
+                <td><img src="/media/{{ usrimg }}" style="height:50px; width:50px;" /></td>
+            </tr>
+
+            <tr>
+                <td>电子邮箱 </td>
+                <td>  {{ email }}</td>
+            </tr>
+
+            <tr>
+                <td>学号 </td>
+                <td>  {{ stuid }}</td>
+            </tr>
+
+            <tr>
+                <td>电话 </td>
+                <td>  {{ telphone }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script type="text/javascript" src="/static/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="/static/js/union.js"></script>
+<script type="text/javascript">
+    
+</script>
+</html>

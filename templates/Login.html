@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>欢迎登录</title>    
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <form action="/login/" method="post" role="form">
+        {% csrf_token %}
+        <table width="0" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>用户姓名 </td>
+                <td><input type="text" name="usrname" class="form-control input-lg"/></td>
+            </tr>
+            <tr>
+                <td>密码 </td>
+                <td><input type="password" name="password" /></td>
+            </tr>
+            <tr>
+                <td>请输入验证码：<input type="text" name="checkcode" /></td>
+                <td><img src="/check_code/" id="check_code">(不区分大小写)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="登陆" />
+                    <input id = "regist"type="button" value="注册" />
+                </td>
+            </tr>
+
+        </table>
+    </form>
+    <p>{{ error }}</p>
+
+</body>
+<script type="text/javascript" src="/static/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="/static/js/union.js"></script>
+<script>
+    Login();
+</script>
+</html>
