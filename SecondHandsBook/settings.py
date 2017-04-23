@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'SecondHandsBook.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'SHBook',
+        'NAME': 'SHBook1',
         'USER': 'djtest',
         'PASSWORD': '123456',
         'HOST': 'localhost',

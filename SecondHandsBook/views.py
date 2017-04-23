@@ -103,7 +103,7 @@ def account (request):
                 rsp['usrimg'] = imgflg[0].UsrImg
             else :
                 rsp['usrimg'] = '/static/img/normal.jpg'
-            return render(request,'Myaccount.html',rsp)
+            return render(request,'MyAccount.html',rsp)
         else :
             return HttpResponseRedirect('/login/')
     else :

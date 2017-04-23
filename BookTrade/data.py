@@ -19,7 +19,7 @@ def ajax_newest(request):
         min = 0
     if max>maxitems:
         max = maxitems
-    print str(min)+' '+str(max)
+#    print str(min)+' '+str(max)
     for item in BOOK.objects.order_by('-BookId').filter(Lock = True, Live = True)[min:max]:       
         dic = {'bookimg':'','bookname':'','bookauthor':'','bookauthor':'','bookbrief':''} 
         if (BOOKIMG.objects.filter(BookID = item)) :      
@@ -34,6 +34,7 @@ def ajax_newest(request):
         dic['booksell'] = item.BookSell
         dic['bookprice'] = item.BookPrice
         rsp.append(dic)
+#        print item.BookName
 #    all_jsons = json.dumps(rsp,ensure_ascii=False)
     return JsonResponse(rsp, safe=False)
 
