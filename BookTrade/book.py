@@ -36,7 +36,7 @@ def add (request):
         if test:
                 data = {}
 #            try:
-                print request.POST['bookname']
+                
                 data['usrname'] = usrname
                 data['Owner'] = usrid
                 data['BookName'] = request.POST['bookname']
