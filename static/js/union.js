@@ -111,6 +111,9 @@ function Login() {
     $("input#regist").click(function () {
         window.location.href = "/regist/"
     });
+    $("input#tourist").click(function () {
+        window.location.href = "/tourist/"
+    });
     // 点击一次,更改图片内容,
     $("#check_code").click(function () {
         $(this).attr("src", "/check_code/?" + String(Math.random()));

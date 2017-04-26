@@ -63,6 +63,27 @@ def logout (request):
         pass
     return render(request,'Login.html',{'error':'请重新登陆'})
 
+def tourist (request):
+    if request.method == 'GET':
+        usrname = request.session.get('usrname')
+        usrid = request.session.get('usrid')
+        test = ''
+        try:
+            test = USR.objects.filter(Name = usrname,USRId = usrid)
+        except KeyError:
+            pass
+        rsp = {}
+        if test:
+            rsp['usrname'] = test.all()[0].Name
+            imgflg = USRIMG.objects.filter(UsrID = test.all()[0])
+            if imgflg:  
+                rsp['usrimg'] = imgflg.all()[0].UsrImg
+            else :
+                rsp['usrimg'] = '/static/img/normal.jpg'
+            return render(request,'Main.html',rsp)
+        else:
+            return render(request,'Tourist.html')
+
 def main (request):
     if request.method == 'GET':
         usrname = request.session.get('usrname')
@@ -103,7 +124,7 @@ def account (request):
                 rsp['usrimg'] = imgflg[0].UsrImg
             else :
                 rsp['usrimg'] = '/static/img/normal.jpg'
-            return render(request,'MyAccount.html',rsp)
+            return render(request,'Myaccount.html',rsp)
         else :
             return HttpResponseRedirect('/login/')
     else :
