@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>登陆后使用更多功能</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>欢迎注册使用更多功能，包括查看书籍详情、立即下单、发布二手书信息！</p>
+    <img src="/media/#" style="height:50px; width:50px;" />
+    <a href="/login/">立即登陆</a>  
+    <a href="/regist/">立即注册(建议)</a>    
+    <hr />
+    <div>
+        <a id="new_data" href="#book_list">最新上架图书</a><input type="text" id="search_str" /><input type="button" id="submit_search" value="搜索图书" /><small>仅支持书名模糊查询</small>
+        <table id="show_data"></table>
+        <hr />
+        <a id="pagedown" href="#">上一页</a><a id="pageup" href="#">下一页</a>
+    </div>
+</body>
+<script type="text/javascript" src="/static/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="/static/js/union.js"></script>
+<script type="text/javascript">
+    Main();
+</script>
+</html>
