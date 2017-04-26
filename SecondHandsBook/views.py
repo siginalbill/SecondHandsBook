@@ -25,7 +25,7 @@ def regist (request):
         p = USR.objects.create(Name = usrname,StuId = stuid,PassWord = password,Email = email,TelPhone = telphone)
         new_img = USRIMG(UsrID = p, UsrImg = usrimg)
         new_img.save()
-        return HttpResponse('<a href="/login/">Success!</a>')
+        return render(request,'Login.html',{'error':'注册成功'})
     else:
         
         return render(request,'Regist.html')
@@ -61,7 +61,7 @@ def logout (request):
         del request.session['usrname']
     except ObjectDoesNotExist:
         pass
-    return HttpResponse('You are logged out.<a href="/login/">重新登陆</a>')
+    return render(request,'Login.html',{'error':'请重新登陆'})
 
 def main (request):
     if request.method == 'GET':
