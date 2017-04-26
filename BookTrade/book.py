@@ -77,7 +77,10 @@ def details(request):
                 rsp['usrimg'] = '/static/img/normal.jpg'
             bookdet = BOOK.objects.filter(BookId = bookid)[0]            
             rsp['bookname'] = bookdet.BookName
-            rsp['bookimg'] = '/media/' + str(BOOKIMG.objects.filter(BookID = bookdet)[0].BookImg)
+            if BOOKIMG.objects.filter(BookID = bookdet):
+                rsp['bookimg'] = '/media/' + str(BOOKIMG.objects.filter(BookID = bookdet)[0].BookImg)
+            else:
+                rsp['bookimg'] = '/static/img/normal.jpg'
             rsp['booksell'] = bookdet.BookSell
             rsp['bookprice'] = bookdet.BookPrice
             rsp['bookauthor'] = bookdet.BookAuthor
