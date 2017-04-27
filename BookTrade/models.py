@@ -1,5 +1,7 @@
 ﻿from __future__ import unicode_literals
 
+from ImageStorage.storage import ImageStorage
+
 from django.db import models
 
 # Create your models here.
@@ -36,9 +38,9 @@ class TRADE (models.Model):
 
 class BOOKIMG (models.Model):
     BookID = models.ForeignKey(BOOK, related_name='book_img')
-    BookImg = models.ImageField(upload_to = './upload/')
+    BookImg = models.ImageField(upload_to='./img/%Y/%m/%d',storage=ImageStorage())
 
 class USRIMG (models.Model):
     UsrID = models.ForeignKey(USR, related_name='usr_img')
-    UsrImg = models.ImageField(upload_to = './upload/')
+    UsrImg = models.ImageField(upload_to='./img/%Y/%m/%d',storage=ImageStorage())
 
