@@ -52,14 +52,14 @@ def login (request):
             return render(request,'Login.html',rsp)
     else :
         rsp = {}
-        rsp['error'] = ''  
+        rsp['error'] = '欢迎登录ezgoto'  
         return render(request,'Login.html',rsp)
 
 def logout (request):
-    try:
+    if request.session.get('usrid', False):
         del request.session['usrid']
         del request.session['usrname']
-    except ObjectDoesNotExist:
+    else:
         pass
     return render(request,'Login.html',{'error':'请重新登陆'})
 

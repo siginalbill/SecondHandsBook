@@ -108,10 +108,10 @@ function Book_Sale() {
 }
 
 function Login() {
-    $("input#regist").click(function () {
+    $("#regist").click(function () {
         window.location.href = "/regist/"
     });
-    $("input#tourist").click(function () {
+    $("#tourist").click(function () {
         window.location.href = "/tourist/"
     });
     // 点击一次,更改图片内容,
@@ -220,7 +220,7 @@ function Main() {
             newest_data();
         });
         $("#show_data").on("click", ".book_list", function () {
-            window.open("/book/details?bookid=" + $(this).attr("bookid"));
+            window.open( "/book/details?bookid=" + $(this).attr("bookid"));
         });
         $("#submit_search").click(function () {
             $.getJSON('/book/search_data/', { "searchstr": $("#search_str").val() }, function (ret) {
