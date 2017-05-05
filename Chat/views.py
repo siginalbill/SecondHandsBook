@@ -59,12 +59,12 @@ def chat_data (request):
             if USRIMG.objects.filter(UsrID = sender):
                 sender_img = USRIMG.objects.filter(UsrID = recver)[0].UsrImg
             for m in CHAT.objects.order_by('-ChatTime').filter(Sender = sender, Recver = recver).all():
-                dic = {'time':'','message':'','name':sender.Name,'img':str(sender_img)} 
+                dic = {'time':'','message':'','name':sender.Name,'img': str(sender_img)} 
                 dic['time'] = m.ChatTime
                 dic['message'] = m.Content
                 rsp.append(dic)
             for m in CHAT.objects.order_by('-ChatTime').filter(Sender = recver, Recver = sender).all():
-                dic = {'time':'','message':'','name':recver.Name,'img':str(recver_img),} 
+                dic = {'time':'','message':'','name':recver.Name,'img': str(recver_img),} 
                 dic['time'] = m.ChatTime
                 dic['message'] = m.Content
                 rsp.append(dic)
