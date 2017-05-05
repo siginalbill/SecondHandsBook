@@ -360,7 +360,7 @@ function MyAccount() {
                     contact = '<td>' + [item["wechat"], item["tencentqq"], item["callothers"]].join("/") + '</td>';
                     tradebrief = '<td>' + item["tradebrief"] + '</td>';
                     trdadetime = '<td>' + item["tradetime"] + '</td>';
-                    operations = '<td class="op"><a class="a_show" href="#" bookid = "' + bookid + '">查看</a>' + ' <a class="a2_show" href="/chat/chat/?recver_name=" ' + sellername + '">联系卖家</a>' + ' <a id="buy_cancel" bookid="' + bookid + '" href="#">取消订单</a></td>';
+                    operations = '<td class="op"><a class="a_show" href="#" bookid = "' + bookid + '">查看</a>' + ' <a class="a2_show" href="/chat/chat/?recver_name=' + sellername + '">联系卖家</a>' + ' <a id="buy_cancel" bookid="' + bookid + '" href="#">取消订单</a></td>';
                 }
                 if (item["status"] == 2) {
                     status = '<td><strong>' + '完成交易' + '</strong></td>';
@@ -368,7 +368,7 @@ function MyAccount() {
                     contact = '<td>' + [item["wechat"], item["tencentqq"], item["callothers"]].join("/") + '</td>';
                     tradebrief = '<td>' + item["tradebrief"] + '</td>';
                     trdadetime = '<td>' + item["tradetime"] + '</td>';
-                    operations = '<td class="op"><a class="a_show" href="#" bookid = "' + bookid + '">查看</a>' + ' <a class="a2_show" href="/chat/chat/?recver_name=" ' + sellername + '">联系卖家</a>' + ' <a id="sell_already" bookid="' + bookid + '" href="#">已结束</a></td>';
+                    operations = '<td class="op"><a class="a_show" href="#" bookid = "' + bookid + '">查看</a>' + ' <a class="a2_show" href="/chat/chat/?recver_name=' + sellername + '">联系卖家</a>' + ' <a id="sell_already" bookid="' + bookid + '" href="#">已结束</a></td>';
                 }
 
                 list_str = [
@@ -453,14 +453,14 @@ function MyAccount() {
                         buyername = '<td>' + item["buyername"] + '</td>';
                         tradebrief = '<td>' + item["tradebrief"] + '</td>';
                         trdadetime = '<td>' + item["tradetime"] + '</td>';
-                        operations = '<td class="op"><a class="a_show" href="#" bookid = "' + bookid + '">查看</a>' + ' <a class="a2_show" href="/chat/chat/?recver_name=" ' + buyername + '">联系买家</a>' + ' <a id="sell_makesure" bookid="' + bookid + '" href="#">确认完成交易</a> <a id="sell_refuse" bookid="' + bookid + '" href="#">拒绝交易</a></td>';
+                        operations = '<td class="op"><a class="a_show" href="#" bookid = "' + bookid + '">查看</a>' + ' <a class="a2_show" href="/chat/chat/?recver_name= ' + buyername + '">联系买家</a>' + ' <a id="sell_makesure" bookid="' + bookid + '" href="#">确认完成交易</a> <a id="sell_refuse" bookid="' + bookid + '" href="#">拒绝交易</a></td>';
                     }
                     if (item["status"] == 2) {
                         status = '<td><strong>' + '已售出' + '</strong></td>';
                         buyername = '<td>' + item["buyername"] + '</td>';
                         tradebrief = '<td>' + item["tradebrief"] + '</td>';
                         trdadetime = '<td>' + item["tradetime"] + '</td>';
-                        operations = '<td class="op"><a class="a_show" href="#" bookid = "' + bookid + '">查看</a>' + ' <a class="a2_show" href="/chat/chat/?recver_name=" ' + buyername + '">联系买家</a>' + ' <a id="sell_already" bookid="' + bookid + '" href="#">已结束</a></td>';
+                        operations = '<td class="op"><a class="a_show" href="#" bookid = "' + bookid + '">查看</a>' + ' <a class="a2_show" href="/chat/chat/?recver_name= ' + buyername + '">联系买家</a>' + ' <a id="sell_already" bookid="' + bookid + '" href="#">已结束</a></td>';
                     }
 
                     list_str = [
