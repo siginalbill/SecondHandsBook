@@ -9,8 +9,7 @@
     <p>欢迎{{ usrname }}，敬请期待</p>
     <img src="/media/{{ usrimg }}" style="height:50px; width:50px;" />
     <a href="/logout/">退出登录(建议)</a>
-    <a href="/main/">返回主页</a>
-    <a href="/book/sale/">出售二手书</a>
+    <a href="javascript:history.go(-1)">返回</a>
     <a href="/account/">我的账户</a>
     <hr />
     <div id="showmessages">
@@ -64,7 +63,6 @@
                         message = '<p>' + value + '</p>';
                     }                   
                 });
-                console.log(name + time + message);
                 list_str = list_str + [
                         '<div class = "chat_list"> '
                         , img
@@ -73,9 +71,7 @@
                         , message                       
                         , '</div>'
                 ].join('');
-                console.log(list_str);
             });
-            console.log(list_str);
             $("#showmessages").html(list_str)
         });
         setTimeout("updata()", 30000);

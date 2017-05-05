@@ -24,7 +24,7 @@
         </p>
         <P>详细信息：{{bookbrief}}</P>
         <p><span>出售者:{{sellname}}</span>  <span>微信/qq/其他：{{wechat}}/{{tencentqq}}/{{callothers}}</span></p>
-        <p><input type="button" value="联系卖家" onclick="window.open('/chat/chat?recver_name={{sellname}}');"/></p>
+        <p><input type="button" value="联系卖家" onclick="window.location = '/chat/chat?recver_name={{sellname}}';"/></p>
         <hr/>
         <p>交易备注(交易地点，交易时间等信息)，您也可以选择使用qq等聊天工具直接与卖家沟通:</p>
         <p><input id="trade_remark" type="text" /></p>
