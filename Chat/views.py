@@ -57,7 +57,7 @@ def chat_data (request):
             if USRIMG.objects.filter(UsrID = recver):
                 recver_img = USRIMG.objects.filter(UsrID = recver)[0].UsrImg
             if USRIMG.objects.filter(UsrID = sender):
-                sender_img = USRIMG.objects.filter(UsrID = recver)[0].UsrImg
+                sender_img = USRIMG.objects.filter(UsrID = sender)[0].UsrImg
             for m in CHAT.objects.order_by('-ChatTime').filter(Sender = sender, Recver = recver).all():
                 dic = {'time':'','message':'','name':sender.Name,'img': str(sender_img)} 
                 dic['time'] = m.ChatTime
