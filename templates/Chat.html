@@ -9,6 +9,7 @@
     <p>欢迎{{ usrname }}，敬请期待</p>
     <img src="/media/{{ usrimg }}" style="height:50px; width:50px;" />
     <a href="/logout/">退出登录(建议)</a>
+    <a href="/main/">返回主页</a>
     <a href="/book/sale/">出售二手书</a>
     <a href="/account/">我的账户</a>
     <hr />
@@ -29,7 +30,8 @@
 <script>
     function updata() {
         var list_str = "";
-        $.getJSON('/chat/getchat/', function (ret) {
+        var getstr = "/chat/getchat/?recver_name=" + postdata["recver_name"];
+        $.getJSON(getstr, function (ret) {
             var name;
             var img;
             var time;
@@ -62,21 +64,24 @@
                         message = '<p>' + value + '</p>';
                     }                   
                 });
+                console.log(name + time + message);
                 list_str = list_str + [
-                        '<div class = "book_list" '
+                        '<div class = "chat_list"> '
                         , img
                         , name
                         , time
                         , message                       
                         , '</div>'
                 ].join('');
+                console.log(list_str);
             });
+            console.log(list_str);
+            $("#showmessages").html(list_str)
         });
-        $("#showmessages").html(list_str)
-        setTimeout("update()", 1000);
+        setTimeout("updata()", 30000);
     }
     $("document").ready(function () {
-        update();
+        updata();
         $("#send_button").click(function () {
             postdata["message"] = $("#chat_input").val();          
             $.post("/chat/postchat/", postdata, function (data) {
