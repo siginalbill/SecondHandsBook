@@ -22,6 +22,7 @@ import settings
 
 urlpatterns = [
     url(r'^book/',include('BookTrade.urls')),
+    url(r'^chat/',include('Chat.urls')),
     url(r'^admin/', admin.site.urls),
 #    url( r'^static/(?P<path>.*)$', 'django.views.static.serve',{ 'document_root': settings.STATIC_URL }),
     url(r'^login/$', views.login),

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>聊天页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>欢迎{{ usrname }}，敬请期待</p>
+    <img src="/media/{{ usrimg }}" style="height:50px; width:50px;" />
+    <a href="/logout/">退出登录(建议)</a>
+    <a href="/book/sale/">出售二手书</a>
+    <a href="/account/">我的账户</a>
+    <hr />
+    <div id="showmessages">
+
+    </div>
+    <div>        
+        <hr />
+        <p><input id="chat_input" type="text" /></p>
+        <p><input id="send_button" type="button" value="发送" /></p>
+    </div>
+</body>
+<script type="text/javascript" src="/static/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="/static/js/union.js"></script>
+<script type="text/javascript">
+    var postdata = { "recver_name": "{{ recvername }}", }; $.ajaxSetup({ data: { csrfmiddlewaretoken: '{{ csrf_token }}' }, });
+</script>
+<script>
+    function updata() {
+        var list_str = "";
+        $.getJSON('/chat/getchat/', function (ret) {
+            var name;
+            var img;
+            var time;
+            var message;
+            $.each(ret, function (i, item) {
+                $.each(item, function (key, value) {
+                    if (key == "img") {
+                        if (value == "") {
+                            img = [
+                             '<p><img src="/static/img/'
+                             , 'normal.jpg'
+                             , '"style="height:50px; width:50px;"/>'
+                            ].join("");
+                        }
+                        else {
+                            img = [
+                             '<p><img src="/media/'
+                             , value
+                             , '"style="height:50px; width:50px;"/>'
+                            ].join("");
+                        }
+                    }
+                    else if (key == "name") {
+                        name = value + '  ';
+                    }
+                    else if (key == "time") {
+                        time = value + '</p>';
+                    }
+                    else if (key == "message") {
+                        message = '<p>' + value + '</p>';
+                    }                   
+                });
+                list_str = list_str + [
+                        '<div class = "book_list" '
+                        , img
+                        , name
+                        , time
+                        , message                       
+                        , '</div>'
+                ].join('');
+            });
+        });
+        $("#showmessages").html(list_str)
+        setTimeout("update()", 1000);
+    }
+    $("document").ready(function () {
+        update();
+        $("#send_button").click(function () {
+            postdata["message"] = $("#chat_input").val();          
+            $.post("/chat/postchat/", postdata, function (data) {
+                $("#chat_input").val("");  //消息发送成功后清空内容框  
+            });
+        });
+    });
+</script>
+</html>

@@ -26,13 +26,8 @@ SECRET_KEY = '4!m0#@^jj9vd-q2954+@yz=nfofqx*9tndy2c+$2t%m=fg@=rn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['121.49.127.140',
-                 '127.0.0.1',
-                 '121.49.122.249',
-                 '121.49.116.66',
-                 '192.168.1.101',
-                 '192.168.1.105',
-                 '123.207.247.112',
+ALLOWED_HOSTS = [
+                 '127.0.0.1',                 
                  'www.ezgoto.cn',
 ]
 
@@ -51,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'BookTrade',
+    'Chat',
 ]
 
 MIDDLEWARE = [
