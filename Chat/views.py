@@ -3,6 +3,7 @@
 from django.shortcuts import render,render_to_response
 from django.http import JsonResponse,HttpResponse,HttpResponseRedirect
 import json
+import operator
 from BookTrade.models import USR
 from BookTrade.models import USRIMG
 from Chat.models import CHAT
@@ -68,7 +69,8 @@ def chat_data (request):
                 dic['time'] = m.ChatTime
                 dic['message'] = m.Content
                 rsp.append(dic)
-            return JsonResponse(rsp, safe=False)
+            rsp_t = sorted(rsp, key = operator.itemgetter('time'))           
+            return JsonResponse(rsp_t, safe=False)
         else :
             return HttpResponseRedirect('/login/')
     else :

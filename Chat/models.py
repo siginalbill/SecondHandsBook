@@ -9,7 +9,7 @@ class CHAT (models.Model):
     Sender = models.ForeignKey(USR, related_name='chat1_usr')
     Recver = models.ForeignKey(USR, related_name='chat2_usr')
     Content = models.TextField()
-    ChatTime = models.DateField(auto_now_add = True)
+    ChatTime = models.DateTimeField(auto_now_add = True)
     manage = models.BooleanField(default = True)
 
     def __unicode__ (self):
