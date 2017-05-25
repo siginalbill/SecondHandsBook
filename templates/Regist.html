@@ -4,12 +4,53 @@
     <meta charset="utf-8" />
     <title>欢迎注册</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" />
+	<script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
 </head>
 <body>
-
-    <form enctype="multipart/form-data" action="/regist/" method="post">
+	<div class="sui-navbar">
+			<div class="navbar-inner">
+				<a href="/main/" class="sui-brand">EZgoto</a>
+				<ul class="sui-nav">
+					<li class="active">
+						<a href="/main/">首页</a>
+					</li>
+					<li>
+						<a href="/book/sale/">出售二手书</a>
+					</li>
+					<li class="sui-dropdown">
+						<a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">其他 <i class="caret"></i></a>
+						<ul role="menu" class="sui-dropdown-menu">
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/main/">最新二手书</a>
+							</li>
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/regist/">立即注册</a>
+							</li>
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/tourist/">游客登录</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<form class="sui-form sui-form pull-left">
+					<input type="text" placeholder="书名/模糊搜索...">
+					<button class="sui-btn">搜索</button>
+				</form>
+				<ul class="sui-nav pull-right">
+					<li>
+						<a href="/account/">个人中心</a>
+					</li>
+					<li>
+						<a href="/help/">帮助</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+    <form class="sui-form" enctype="multipart/form-data" action="/regist/" method="post">
         {% csrf_token %}
-        <table width="0" border="0" cellspacing="0" cellpadding="0">
+        <table class="sui-table table-zebra" width="0" border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td>用户姓名 </td>
                 <td><input type="text" name="usrname" /></td>
@@ -26,7 +67,7 @@
 
             <tr>
                 <td>上传头像 </td>
-                <td><input type="file" name="img"></td>
+                <td><input type="file" class="sui-btn btn-large" name="img"></td>
             </tr>
 
             <tr>
@@ -56,8 +97,8 @@
 
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="注册" />
-                    <input id = "login" type="button" value="返回登录" />
+                    <input type="submit" value="注册" class="sui-btn btn-large btn-primary"/>
+                    <input id = "login" type="button" value="返回登录" class="sui-btn btn-large btn-warning"/>
                 </td>
             </tr>
 

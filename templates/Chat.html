@@ -4,8 +4,50 @@
     <meta charset="utf-8" />
     <title>聊天页面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" />
+	<script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
 </head>
 <body>
+	<div class="sui-navbar">
+			<div class="navbar-inner">
+				<a href="/main/" class="sui-brand">EZgoto</a>
+				<ul class="sui-nav">
+					<li class="active">
+						<a href="/main/">首页</a>
+					</li>
+					<li>
+						<a href="#">出售二手书</a>
+					</li>
+					<li class="sui-dropdown">
+						<a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">其他 <i class="caret"></i></a>
+						<ul role="menu" class="sui-dropdown-menu">
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/account/">我的购买</a>
+							</li>
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/logout/">退出登录</a>
+							</li>
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/tourist/">游客登录</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<form class="sui-form sui-form pull-left">
+					<input type="text" id="search_str" placeholder="书名/模糊搜索...">
+					<button id="submit_search" class="sui-btn">搜索</button>
+				</form>
+				<ul class="sui-nav pull-right">
+					<li>
+						<a href="/account/">{{ usrname }}</a>
+					</li>
+					<li>
+						<a href="/help/">帮助</a>
+					</li>
+				</ul>
+			</div>
+		</div>
     <p>欢迎{{ usrname }}，敬请期待</p>
     <img src="/media/{{ usrimg }}" style="height:50px; width:50px;" />
     <a href="/logout/">退出登录(建议)</a>

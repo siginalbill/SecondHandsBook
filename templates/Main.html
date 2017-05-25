@@ -4,17 +4,67 @@
         <meta charset="utf-8" />
         <title>点击查看商品</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" />
+		<script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
     </head>
     <body>
-        <p>欢迎{{ usrname }}，敬请期待</p>
+    	<div class="sui-navbar">
+			<div class="navbar-inner">
+				<a href="/main/" class="sui-brand">EZgoto</a>
+				<ul class="sui-nav">
+					<li class="active">
+						<a href="/main/">首页</a>
+					</li>
+					<li>
+						<a href="/book/sale/">出售二手书</a>
+					</li>
+					<li class="sui-dropdown">
+						<a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">其他 <i class="caret"></i></a>
+						<ul role="menu" class="sui-dropdown-menu">
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/account/">我的购买</a>
+							</li>
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/logout/">退出登录</a>
+							</li>
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/tourist/">游客登录</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<form class="sui-form sui-form pull-left">
+					<input type="text" id="search_str" placeholder="书名/模糊搜索...">
+					<input type="button" id="submit_search" class="sui-btn" value="搜索">
+				</form>
+				<ul class="sui-nav pull-right">
+					<li>
+						<a href="/account/">{{ usrname }}</a>
+					</li>
+					<li>
+						<a href="/help/">帮助</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="sui-msg msg-info">
+			<div class="msg-con">欢迎{{ usrname }}，点击即可查看书籍详情并进行购买。</div>
+			<s class="msg-icon"></s>
+		</div><br><br>
+<!--
+	作者：zxbill@yeah.net
+	时间：2017-05-25
+	描述：
         <img src="/media/{{ usrimg }}" style="height:50px; width:50px;"/>
         <a href="/logout/">退出登录(建议)</a>
         <a href="/book/sale/">出售二手书</a>
         <a href="/account/">我的账户</a>
         <hr/>
+-->
         <div>
-            <a id="new_data" href="#book_list">最新上架图书</a><input type="text" id="search_str"/><input type="button" id="submit_search" value="搜索图书"/><small>仅支持书名模糊查询</small>
-            <table id="show_data">
+            <a id="new_data" href="#book_list">最新上架图书</a>
+            <table id="show_data" class="sui-table table-bordered-simple">
             </table>
             <hr/>
             <a id="pagedown" href="#">上一页</a><a id="pageup" href="#">下一页</a>

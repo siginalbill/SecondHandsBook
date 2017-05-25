@@ -4,8 +4,55 @@
     <meta charset="utf-8" />
     <title>点击查看商品</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" />
+	<script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
 </head>
 <body>
+	<div class="sui-navbar">
+			<div class="navbar-inner">
+				<a href="/main/" class="sui-brand">EZgoto</a>
+				<ul class="sui-nav">
+					<li class="active">
+						<a href="/main/">首页</a>
+					</li>
+					<li>
+						<a href="/book/sale/">出售二手书</a>
+					</li>
+					<li class="sui-dropdown">
+						<a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">其他 <i class="caret"></i></a>
+						<ul role="menu" class="sui-dropdown-menu">
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/details/">我的账号信息</a>
+							</li>
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/logout/">退出登录</a>
+							</li>
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="/tourist/">游客登录</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<form class="sui-form sui-form pull-left">
+					<input type="text" id="search_str" placeholder="书名/模糊搜索...">
+					<button id="submit_search" class="sui-btn">搜索</button>
+				</form>
+				<ul class="sui-nav pull-right">
+					<li>
+						<a href="/account/">{{ usrname }}</a>
+					</li>
+					<li>
+						<a href="/help/">帮助</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+<!--
+	作者：zxbill@yeah.net
+	时间：2017-05-25
+	描述：
+
     <p>欢迎{{ usrname }}，敬请期待</p>
     <img src="{{ usrimg }}" style="height:50px; width:50px;" />
     <a href="/logout/">退出登录(建议)</a>
@@ -13,10 +60,16 @@
     <a href="/book/sale/">出售二手书</a>
     <a id="" href="/details/">我的账号信息</a>
     <hr />
-    <div>
-        <a id="account_bookbuy" href="#">我的购买</a><a id="account_booksell" href="#">我的出售</a> 
-        <p>本网站禁止修改订单信息，如果想要修改请删除原有订单重新发布；待确认订单无法删除，请拒绝交易后删除；卖家确认交易视为交易完成，拒绝交易则可重新等待买家购买。</p>
-        <table id="show_data"></table>
+-->
+    <div class="main_box">
+
+        <div class="sui-msg msg-tips">
+			<div class="msg-con">本网站禁止修改订单信息，如果想要修改请删除原有订单重新发布；待确认订单无法删除，请拒绝交易后删除；卖家确认交易视为交易完成，拒绝交易则可重新等待买家购买。</div>
+			<s class="msg-icon"></s>
+		</div><br><br>
+        <a id="account_bookbuy" href="#" class="sui-btn btn-large btn-success" >我的购买</a><a id="account_booksell" class="sui-btn btn-large btn-primary" >我的出售</a><a id="" href="/details/" class="sui-btn btn-large btn-info" >我的账号信息</a> 
+        
+        <table id="show_data" class="sui-table table-bordered"></table>
     </div>
 </body>
 <script type="text/javascript" src="/static/js/jquery-3.2.0.min.js"></script>
