@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>点击查看商品</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>欢迎{{ usrname }}，敬请期待</p>
+    <img src="{{ usrimg }}" style="height:50px; width:50px;" />
+    <a href="/logout/">退出登录(建议)</a>
+    <a href="/main/">返回主页</a>
+    <a href="/book/sale/">出售二手书</a>
+    <a id="" href="/details/">我的账号信息</a>
+    <hr />
+    <div>
+        <a id="account_bookbuy" href="#">我的购买</a><a id="account_booksell" href="#">我的出售</a> 
+        <p>本网站禁止修改订单信息，如果想要修改请删除原有订单重新发布；待确认订单无法删除，请拒绝交易后删除；卖家确认交易视为交易完成，拒绝交易则可重新等待买家购买。</p>
+        <table id="show_data"></table>
+    </div>
+</body>
+<script type="text/javascript" src="/static/js/jquery-3.2.0.min.js"></script>
+<script>$.ajaxSetup({ data: { csrfmiddlewaretoken: '{{ csrf_token }}' }, });</script>
+<script type="text/javascript" src="/static/js/union.js"></script>
+<script type="text/javascript">
+    MyAccount(); 
+</script>
+</html>
